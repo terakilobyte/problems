@@ -20,7 +20,7 @@ describe("Tower", function() {
   })
 
   it("should return true with an array of length 1 and a value of 1", () => {
-    const input = [0],
+    const input = [1],
       expected = true
 
     expect(Tower.canEscape(input)).to.eql(expected)

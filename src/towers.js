@@ -5,7 +5,7 @@
  * passed array.
  *
  * Each index in the array is considered a "tower", with each value corresponding
- * to how far you may "jump" forward form that tower.
+ * to how far you may "jump" forward from that tower.
  *
  * Example: Given the array [3, 0, 1, 2, 0, 1], your canEscape function should
  * return true. The value at index 0 is a 3, meaning you may jump from 1 to 3 indexes
