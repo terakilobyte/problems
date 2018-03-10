@@ -4,7 +4,7 @@ const Tower = require("../src/towers")
 
 const expect = chai.expect
 
-describe("Tower", function() {
+describe("Tower", () => {
   it("should return false for an empty array", () => {
     const input = [],
       expected = false
