@@ -23,23 +23,12 @@
 
 ## How to Test
 
-#### Run all tests
+#### Run tests
 
-* `./node_modules/mocha/bin/\_mocha test/`
-* Or you can use the command from package.json
-  * `npm run test`
+* `npm test`
 
-#### Run tests from a single file
+#### Run tests per problem
 
-* `./node_modules/mocha/bin/\_mocha test/foo-spec`
+Tests all have a mark. So, to only run tests for the towers problem
 
-#### Using mocha .only / .skip
-
-* Every 'it' and 'describe' block can be post-fixed with a .only or a .skip flag.
-* If you use a .only flag then only that test or test block will be executed.
-* If you use a .skip flag then all tests except for the ones marked as skipped will executed.
-
-```
-  it.only("Should only run this stuff", function () {})
-  it.skip("Should not run this test", function () {})
-```
+* `ava -m="*towers*"`
