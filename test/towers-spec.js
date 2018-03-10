@@ -1,49 +1,38 @@
-const chai = require("chai")
+import test from "ava"
+import Tower from "../src/towers"
 
-const Tower = require("../src/towers")
+test("towers: should return false for an empty array", t => {
+  const input = []
 
-const expect = chai.expect
+  t.false(Tower.canEscape(input))
+})
 
-describe("Tower", () => {
-  it("should return false for an empty array", () => {
-    const input = [],
-      expected = false
+test("towers: should return false with array of length 1 with a value of 0", t => {
+  const input = [0]
 
-    expect(Tower.canEscape(input)).to.eql(expected)
-  })
+  t.false(Tower.canEscape(input))
+})
 
-  it("should return false with array of length 1 with a value of 0", () => {
-    const input = [0],
-      expected = false
+test("towers: should return true with an array of length 1 and a value of 1", t => {
+  const input = [1]
 
-    expect(Tower.canEscape(input)).to.eql(expected)
-  })
+  t.true(Tower.canEscape(input))
+})
 
-  it("should return true with an array of length 1 and a value of 1", () => {
-    const input = [1],
-      expected = true
+test("towers: should return true for escapable array stemming from greedy first index", t => {
+  const input = [3, 0, 0, 2, 0, 1]
 
-    expect(Tower.canEscape(input)).to.eql(expected)
-  })
+  t.true(Tower.canEscape(input))
+})
 
-  it("should return true for escapable array stemming from greedy first index", () => {
-    const input = [3, 0, 0, 2, 0, 1],
-      expected = true
+test("towers: should return true for escapable array with non-greedy approach", t => {
+  const input = [3, 5, 0, 0, 0, 1, 1]
 
-    expect(Tower.canEscape(input)).to.eql(expected)
-  })
+  t.true(Tower.canEscape(input))
+})
 
-  it("should return true for escapable array with non-greedy approach", () => {
-    const input = [3, 5, 0, 0, 0, 1, 1],
-      expected = true
+test("towers: should be ok with values that extend well beyond array bounds", t => {
+  const input = [3, 1, 0, 2, 7, 0]
 
-    expect(Tower.canEscape(input)).to.eql(expected)
-  })
-
-  it("should be ok with values that extend well beyond array bounds", () => {
-    const input = [3, 1, 0, 2, 7, 0],
-      expected = true
-
-    expect(Tower.canEscape(input)).to.eql(expected)
-  })
+  t.true(Tower.canEscape(input))
 })
