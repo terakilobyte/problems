@@ -29,7 +29,6 @@
  * @property {number} sum The sum of the greatest path
  */
 
-
 class GreatestPath {
   /**
    * Returns an object with the path of the greatest sum and the sum
@@ -40,8 +39,7 @@ class GreatestPath {
    * @returns {Result}
    * An object with the sum and path
    */
-  static greatestPath(matrix) { }
-
+  static greatestPath(matrix) {}
 }
 
-
+module.exports = GreatestPath
