@@ -39,7 +39,52 @@ class GreatestPath {
    * @returns {Result}
    * An object with the sum and path
    */
-  static greatestPath(matrix) {}
+  static greatestPath(matrix) {
+    const m = matrix.length
+    const n = matrix[0].length
+    let dynamic = []
+    for (let i = 0; i < m; i++) {
+      dynamic[i] = new Array(m)
+    }
+
+    for (let i = m - 1; i >= 0; i--) {
+      for (let j = n - 1; j >= 0; j--) {
+        if (i === m - 1) {
+          // don't look down if we're in the bottom row
+          if (j === n - 1) {
+            // don't look right if we're in the far right row
+            dynamic[i][j] = matrix[i][j]
+          } else {
+            dynamic[i][j] = matrix[i][j] + dynamic[i][j + 1]
+          }
+        } else if (j === n - 1) {
+          // don't look right if we're in the far right row
+          dynamic[i][j] = matrix[i][j] + dynamic[i + 1][j]
+        } else {
+          // we now look at the cell down and the cell to the right
+          const down = dynamic[i + 1][j]
+          const right = dynamic[i][j + 1]
+          dynamic[i][j] = matrix[i][j] + Math.max(down, right)
+        }
+      }
+    }
+    let res = {}
+    res.sum = dynamic[0][0]
+    res.path = []
+    let posM = 0,
+      posN = 0
+    while (posM < m && posN < n) {
+      res.path.push(matrix[posM][posN])
+      let right = posN < n - 1 ? dynamic[posM][posN + 1] : 0
+      let down = posM < m - 1 ? dynamic[posM + 1][posN] : 0
+      if (right >= down) {
+        posN++
+      } else {
+        posM++
+      }
+    }
+    return res
+  }
 }
 
 module.exports = GreatestPath

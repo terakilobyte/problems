@@ -29,7 +29,19 @@ class Tower {
    * @param {[Number]} arr An array of Numbers
    * @returns {Boolean} True if the passed array is escapable, otherwise false
    */
-  static canEscape(arr) {}
+  static canEscape(arr) {
+    let toGo = 1,
+      runningTally = 0
+    for (let i = arr.length - 1; i >= 0; i--) {
+      if (runningTally + Math.min(arr[i], toGo) - 1 < 0) {
+        runningTally--
+      } else {
+        runningTally = 0
+      }
+      toGo++
+    }
+    return arr.length > 0 && runningTally === 0
+  }
 }
 
 module.exports = Tower
