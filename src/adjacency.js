@@ -32,7 +32,7 @@ class Adjacency {
   /**
    *
    * @param {[Node]} nodes An array of input Nodes
-   * @returns {AdjacencyGraph} An adjacency graph
+   * @returns {FilledNode} The root element of the map/graph
    */
   static fillGraph(nodes) {}
 }
