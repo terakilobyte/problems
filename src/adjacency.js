@@ -24,7 +24,7 @@
  */
 
 /**
- * @typedef AdjacencyGraph
+ * @typedef AdjacencyMap
  * @property {[FilledNode]} head The entry point of the graph
  */
 
