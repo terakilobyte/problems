@@ -31,17 +31,17 @@ class Tower {
    */
   static canEscape(arr) {
     let toGo = 1,
-      runningTally = 0
+      runningTally = 0;
     for (let i = arr.length - 1; i >= 0; i--) {
       if (runningTally + Math.min(arr[i], toGo) - 1 < 0) {
-        runningTally--
+        runningTally--;
       } else {
-        runningTally = 0
+        runningTally = 0;
       }
-      toGo++
+      toGo++;
     }
-    return arr.length > 0 && runningTally === 0
+    return arr.length > 0 && runningTally === 0;
   }
 }
 
-module.exports = Tower
+module.exports = Tower;
