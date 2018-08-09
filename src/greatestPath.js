@@ -3,7 +3,8 @@
  * The goal of this challenge is to create a function that accepts an m*n matrix
  * and returns the greatest sum and path from top left to bottom right.
  *
- * Constraints: You can only move right or down. You must start at the top left.
+ * Constraints:
+ ** You can only move right or down. The path must start at the top left.
  * You must end at the bottom right.
  *
  *
